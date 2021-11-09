@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>一、STM32CubeMX安装</title>
+      <link href="/2021/11/09/STM32/STM32CubeMX/STM32CubeMX%E5%AE%89%E8%A3%85/"/>
+      <url>/2021/11/09/STM32/STM32CubeMX/STM32CubeMX%E5%AE%89%E8%A3%85/</url>
+      
+        <content type="html"><![CDATA[<h3 id="STM32CubeMX安装"><a href="#STM32CubeMX安装" class="headerlink" title="STM32CubeMX安装"></a>STM32CubeMX安装</h3><h4 id="1、STM32CubeMX介绍"><a href="#1、STM32CubeMX介绍" class="headerlink" title="1、STM32CubeMX介绍"></a>1、STM32CubeMX介绍</h4><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image.PF259242.en.feature-description-include-personalized-no-cpn-large.jpg"></p><p>​    STM32CubeMX是ST公司主动原创的一款代码生成工具， 它可以减轻开发时间和费用。STM32CubeMX集成了一个全面的软件平台，支持STM32每一个系列的MCU开发。这个平台 包括 STM32Cube HAL（一个 STM32 的抽象层集成软件，确保 STM32 系列最大的移植性），再加上兼容的一套中间件 （RTOS、USB、TCP/IP 和图形）。所有内嵌软件组件附带了全套例程。 </p><h4 id="2、软件坏境安装"><a href="#2、软件坏境安装" class="headerlink" title="2、软件坏境安装"></a>2、软件坏境安装</h4><p>STM32CubeMX软件是基于java环境运行的，所以需要安装JRE才能使用。 </p><p>STM32CubeMX要求JRE最低版本是1.7.0_45，所以最好使用教新的版本，JAVA官方网址为：<a href="http://www.oracle.com/technetwork/java/javase/downloads/index.html">http://www.oracle.com/technetwork/java/javase/downloads/index.html</a> ，安装完成后配置好Java环境变量 。</p><h4 id="3、STM32CubeMX软件下载"><a href="#3、STM32CubeMX软件下载" class="headerlink" title="3、STM32CubeMX软件下载"></a>3、STM32CubeMX软件下载</h4><p>软件获取方式： </p><p>①、 ST官网：工具和软件→开发工具→Software Development Tools→STM32CubeMX→GET SOFTWARE </p><p>官网下载地址链接：<a href="https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html">https://www.st.com/content/st_com/en/products/development-tools/software-development-tools/stm32-software-development-tools/stm32-configurators-and-code-generators/stm32cubemx.html</a></p><p>②、从官网下载需要注册ST账号，所以我已经将软件下载好放在百度云盘，需要的关注公众号《Kevin的嵌入式学习站》，后台回复“STM32CubeMX”。</p><h4 id="4、安装步骤"><a href="#4、安装步骤" class="headerlink" title="4、安装步骤"></a>4、安装步骤</h4><p>①、解压安装包后，点击SetupSTM32CubeMX-4.27.0，以管理员权限运行</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102225307384.png"></p><p>②、安装步骤</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230354486.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230429236.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230539190.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230608865.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230637341.png"></p><p>安装完成后可以在桌面打开STM32CubeMX</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230737383.png"></p><p>安装对应的支持包，因为支持包比较大，所以最好更改一下默认安装路径，<strong>但切记不能出现中文路径</strong></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102230825288.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231049976.png"></p><p>安装支持包</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231122078.png"></p><p>安装自己开发所需要的支持包，如我需要如下安装包</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231229774.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231324494.png"></p><p>当然也可以提前下好支持包，然后再导入到软件中</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231640286.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/STM32CubeMX%E5%AE%89%E8%A3%85/image-20211102231756636.png"></p><p>到此安装结束，<strong>值得注意的是安装坏境不要出现中文环境，不然后期开发会报错！</strong></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> STM32CubeMX </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> STM32CubeMX </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>三、ROS开发中常用的命令</title>
       <link href="/2021/11/09/ROS/%E4%B8%89%E3%80%81ROS%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/"/>
       <url>/2021/11/09/ROS/%E4%B8%89%E3%80%81ROS%E5%BC%80%E5%8F%91%E4%B8%AD%E5%B8%B8%E7%94%A8%E7%9A%84%E5%91%BD%E4%BB%A4/</url>
