@@ -4,6 +4,31 @@
   
     
     <entry>
+      <title>FileZilla连接阿里云服务器</title>
+      <link href="/2021/11/10/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/"/>
+      <url>/2021/11/10/%E9%81%87%E5%88%B0%E7%9A%84%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/</url>
+      
+        <content type="html"><![CDATA[<h3 id="FileZilla连接阿里云服务器"><a href="#FileZilla连接阿里云服务器" class="headerlink" title="FileZilla连接阿里云服务器"></a>FileZilla连接阿里云服务器</h3><blockquote><p>目的：可以更好的管理云文件</p></blockquote><p>设置</p><p>在远程服务器端通过指令vim /etc/ssh/sshd_config开放22号端口</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/20211110100635.png"></p><p>设置云服务器的安全组ID，添加20/21</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/20211110100640.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/20211110100643.png"></p><p>然后启动FileZilla，新建站点，设置SFTP、公网地址（主机）、root账号（用户名）、密码、填写22端口进行连接。</p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/20211110100646.png"></p><p><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/FileZilla%E8%BF%9E%E6%8E%A5%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%E5%99%A8/20211110100650.png"></p><h3 id=""><a href="#" class="headerlink" title=""></a></h3>]]></content>
+      
+      
+      <categories>
+          
+          <category> 问题及解决方案 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 问题及解决方案 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>一、Matlab快速绘制栅格地图</title>
       <link href="/2021/11/09/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/%E4%B8%80%E3%80%81Matlab%E5%BF%AB%E9%80%9F%E7%BB%98%E5%88%B6%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE/"/>
       <url>/2021/11/09/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6%E8%B7%AF%E5%BE%84%E8%A7%84%E5%88%92%E5%B8%B8%E7%94%A8%E7%AE%97%E6%B3%95/%E4%B8%80%E3%80%81Matlab%E5%BF%AB%E9%80%9F%E7%BB%98%E5%88%B6%E6%A0%85%E6%A0%BC%E5%9C%B0%E5%9B%BE/</url>
