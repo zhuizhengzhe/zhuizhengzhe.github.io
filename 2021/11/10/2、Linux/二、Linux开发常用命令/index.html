@@ -1,0 +1,1075 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>二、Linux开发常用命令 | Kevin的学习站</title><meta name="keywords" content="Linux"><meta name="author" content="Kevin"><meta name="copyright" content="Kevin"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Linux开发过程中常用的命令">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二、Linux开发常用命令">
+<meta property="og:url" content="https://zhuizhengzhe.github.io/2021/11/10/2%E3%80%81Linux/%E4%BA%8C%E3%80%81Linux%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/index.html">
+<meta property="og:site_name" content="Kevin的学习站">
+<meta property="og:description" content="Linux开发过程中常用的命令">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/peng_xiang_li/Blogimage/raw/master/Linux/src=http---images1.tqwba.com-20200521-sb4wsp0fjrt.jpg&refer=http---images1.tqwba.jpg">
+<meta property="article:published_time" content="2021-11-10T07:54:30.374Z">
+<meta property="article:modified_time" content="2021-11-20T06:33:51.351Z">
+<meta property="article:author" content="Kevin">
+<meta property="article:tag" content="Linux">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/peng_xiang_li/Blogimage/raw/master/Linux/src=http---images1.tqwba.com-20200521-sb4wsp0fjrt.jpg&refer=http---images1.tqwba.jpg"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://zhuizhengzhe.github.io/2021/11/10/2%E3%80%81Linux/%E4%BA%8C%E3%80%81Linux%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"search.xml","languages":{"hits_empty":"找不到您查询的内容：${query}"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":2000},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: {"limitCount":50,"languages":{"author":"作者: Kevin","link":"链接: ","source":"来源: Kevin的学习站","info":"著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。"}},
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery@2/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: '二、Linux开发常用命令',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-20 14:33:51'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/CSDN_51che/QQ图片20211108214123.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data is-center"><div class="data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div><div class="data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://gitee.com/peng_xiang_li/Blogimage/raw/master/Linux/src=http---images1.tqwba.com-20200521-sb4wsp0fjrt.jpg&amp;refer=http---images1.tqwba.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Kevin的学习站</a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 链接</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></li><li><a class="site-page child" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></li></ul></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">二、Linux开发常用命令</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-11-10T07:54:30.374Z" title="发表于 2021-11-10 15:54:30">2021-11-10</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-20T06:33:51.351Z" title="更新于 2021-11-20 14:33:51">2021-11-20</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Linux/">Linux</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="二、Linux开发常用命令"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h2 id="二、Linux开发常用命令"><a href="#二、Linux开发常用命令" class="headerlink" title="二、Linux开发常用命令"></a>二、Linux开发常用命令</h2><h3 id="2-1、常用的系统工作命令"><a href="#2-1、常用的系统工作命令" class="headerlink" title="2.1、常用的系统工作命令"></a>2.1、常用的系统工作命令</h3><h4 id="1、echo命令"><a href="#1、echo命令" class="headerlink" title="1、echo命令"></a>1、echo命令</h4><p>echo命令用于在终端输出字符串或变量提取后的值，格式为“echo [字符串 | $变量]”。</p>
+<p>使用$变量的方式提取变量SHELL的值，并将其输出到屏幕上：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">echo $SHELL</span><br><span class="line">输出： /bin/bash</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、reboot命令"><a href="#2、reboot命令" class="headerlink" title="2、reboot命令"></a>2、reboot命令</h4><p>reboot命令用于重启系统</p>
+<blockquote>
+<p><strong>语法格式：</strong> reboot [参数]  </p>
+</blockquote>
+<p>由于重启计算机这种操作会涉及硬件资源的管理权限，因此默认只能使用root管理员来重启。</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-n</th>
+<th>在重开机前不做将记忆体资料写回硬盘的动作 帮助</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-w</td>
+<td>并不会真的重开机，只是把记录写到 /var/log/wtmp 档案里</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>不把记录写到 /var/log/wtmp 档案里（-n 这个参数包含了 -d）</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强迫重开机，不呼叫 shutdown 这个指令</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>在重开机之前先把所有网络相关的装置先停止</td>
+</tr>
+</tbody></table>
+<h4 id="3、poweroff命令"><a href="#3、poweroff命令" class="headerlink" title="3、poweroff命令"></a>3、poweroff命令</h4><p>poweroff命令用于关闭系统</p>
+<blockquote>
+<p><strong>语法格式：</strong>poweroff [参数]</p>
+</blockquote>
+<p>该命令与reboot命令相同，都会涉及硬件资源的管理权限，因此默认只有root管理员才可以关闭电脑。</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-n</th>
+<th>关闭操作系统时不执行sync操作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-w</td>
+<td>不真正关闭操作系统，仅在日志文件“/var/log/wtmp”中</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>关闭操作系统时，不将操作写入日志文件“/var/log/wtmp”中添加相应的记录</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>强制关闭操作系统</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>关闭操作系统之前关闭所有的网络接口</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>关闭操作系统之前将系统中所有的硬件设置为备用模式</td>
+</tr>
+</tbody></table>
+<h4 id="4、ps命令"><a href="#4、ps命令" class="headerlink" title="4、ps命令"></a>4、ps命令</h4><p>ps命令用于查看系统中的进程状态，</p>
+<blockquote>
+<p><strong>语法格式：</strong>ps [参数] </p>
+</blockquote>
+<p>该命令可以确定有哪些进程正在运行和运行的状态、进程是否结束、进程有没有僵死、哪些进程占用了过多的资源等等，总之大部分信息都是可以通过执行该命令得到的。 </p>
+<p><strong>常用参数：</strong>﻿</p>
+<table>
+<thead>
+<tr>
+<th>-a</th>
+<th>显示所有终端机下执行的程序，除了阶段作业领导者之外</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>a</td>
+<td>显示现行终端机下的所有程序，包括其他用户的程序</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>显示所有程序</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>显示CLS和PRI栏位</td>
+</tr>
+<tr>
+<td>c</td>
+<td>列出程序时，显示每个程序真正的指令名称，而不包含路径，选项或常驻服务的标示</td>
+</tr>
+<tr>
+<td>-C &lt;指令名称&gt;</td>
+<td>指定执行指令的名称，并列出该指令的程序的状况</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>显示所有程序，但不包括阶段作业领导者的程序</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>此选项的效果和指定”A”选项相同</td>
+</tr>
+<tr>
+<td>e</td>
+<td>列出程序时，显示每个程序所使用的环境变量</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>显示UID,PPIP,C与STIME栏位</td>
+</tr>
+<tr>
+<td>f</td>
+<td>用ASCII字符显示树状结构，表达程序间的相互关系</td>
+</tr>
+<tr>
+<td>-g &lt;群组名称&gt;</td>
+<td>此选项的效果和指定”-G”选项相同，当亦能使用阶段作业领导者的名称来指定</td>
+</tr>
+<tr>
+<td>g</td>
+<td>显示现行终端机下的所有程序，包括群组领导者的程序</td>
+</tr>
+</tbody></table>
+<h4 id="5、kill命令"><a href="#5、kill命令" class="headerlink" title="5、kill命令"></a>5、kill命令</h4><p>kill命令用于终止某个指定PID的服务进程。</p>
+<blockquote>
+<p><strong>语法格式：</strong>kill [参数] [进程号]</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-l</th>
+<th>列出系统支持的信号</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-s</td>
+<td>指定向进程发送的信号</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>处理当前进程时不限制命令名和进程号的对应关系</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>指定kill命令只打印相关进程的进程号，而不发送任何信号</td>
+</tr>
+</tbody></table>
+<h4 id="6、killall命令"><a href="#6、killall命令" class="headerlink" title="6、killall命令"></a>6、killall命令</h4><p>killall命令用于终止某个指定名称的服务所对应的全部进程，</p>
+<blockquote>
+<p><strong>语法格式：</strong>“killall [参数] [进程名称]”。</p>
+</blockquote>
+<h3 id="2-2、系统状态检测命令"><a href="#2-2、系统状态检测命令" class="headerlink" title="2.2、系统状态检测命令"></a>2.2、系统状态检测命令</h3><h4 id="1．ifconfig命令"><a href="#1．ifconfig命令" class="headerlink" title="1．ifconfig命令"></a>1．ifconfig命令</h4><p>ifconfig命令用于获取网卡配置与网络状态等信息，</p>
+<blockquote>
+<p>格式为“ifconfig [网络设备] [参数]”。</p>
+</blockquote>
+<h4 id="2-uname命令"><a href="#2-uname命令" class="headerlink" title="2.uname命令"></a>2.uname命令</h4><p>uname命令用于查看系统内核与系统版本等信息，</p>
+<blockquote>
+<p><strong>语法格式：</strong>uname [参数] </p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-a</th>
+<th>显示系统所有相关信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-m</td>
+<td>显示计算机硬件架构</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>显示主机名称</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>显示内核发行版本号</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>显示内核名称</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示内核版本</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>显示主机处理器类型</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>显示操作系统名称</td>
+</tr>
+<tr>
+<td>-i</td>
+<td>显示硬件平台</td>
+</tr>
+</tbody></table>
+<p>在使用uname命令时，一般会固定搭配上-a参数来完整地查看当前系统的内核名称、主机名、内核发行版本、节点名、系统时间、硬件名称、硬件平台、处理器类型以及操作系统名称等信息。</p>
+<h3 id="2-3、工作目录切换命令"><a href="#2-3、工作目录切换命令" class="headerlink" title="2.3、工作目录切换命令"></a>2.3、工作目录切换命令</h3><h4 id="1、pwd命令"><a href="#1、pwd命令" class="headerlink" title="1、pwd命令"></a>1、pwd命令</h4><p>pwd命令用于显示用户当前所处的工作目录，</p>
+<blockquote>
+<p><strong>语法格式:</strong> pwd [参数]</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-L</th>
+<th>显示逻辑路径</th>
+</tr>
+</thead>
+</table>
+<h4 id="2、cd命令"><a href="#2、cd命令" class="headerlink" title="2、cd命令"></a>2、cd命令</h4><blockquote>
+<p><strong>语法格式：</strong>cd [参数] [目录名] </p>
+</blockquote>
+<p>cd命令用于切换工作路径，格式为“cd [目录名称]”。是最常用的一个Linux命令之一。</p>
+<p>可以通过cd命令迅速、灵活地切换到不同的工作目录。</p>
+<p>除了常见的切换目录方式：</p>
+<blockquote>
+<p>可以使用“cd -”命令返回到上一次所处的目录，</p>
+<p>使用“cd..”命令进入上级目录，</p>
+<p>使用“cd ~”命令切换到当前用户的家目录，</p>
+<p>使用“cd ~username”切换到其他用户的家目录。</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-P</th>
+<th>如果切换的目标目录是一个符号链接，则直接切换到符号链接指向的目标目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-L</td>
+<td>如果切换的目标目录是一个符号链接，则直接切换到符号链接名所在的目录</td>
+</tr>
+<tr>
+<td>–</td>
+<td>仅使用”-“选项时，当前目录将被切换到环境变量”OLDPWD”对应值的目录</td>
+</tr>
+<tr>
+<td>~</td>
+<td>切换至当前用户目录</td>
+</tr>
+<tr>
+<td>..</td>
+<td>切换至当前目录位置的上一级目录</td>
+</tr>
+</tbody></table>
+<h4 id="3．ls命令"><a href="#3．ls命令" class="headerlink" title="3．ls命令"></a>3．ls命令</h4><p>ls命令用于显示指定工作目录下的内容及属性信息。</p>
+<blockquote>
+<p><strong>语法格式:</strong> ls [选项] [文件] </p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-a</th>
+<th>显示所有文件及目录 (包括以“.”开头的隐藏文件)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>使用长格式列出文件及目录信息</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>将文件以相反次序显示(默认依英文字母次序)</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>根据最后的修改时间排序</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>同 -a ，但不列出 “.” (当前目录) 及 “..” (父目录)</td>
+</tr>
+<tr>
+<td>-S</td>
+<td>根据文件大小排序</td>
+</tr>
+<tr>
+<td>-R</td>
+<td>递归列出所有子目录</td>
+</tr>
+</tbody></table>
+<h3 id="2-4、文本文件编辑命令"><a href="#2-4、文本文件编辑命令" class="headerlink" title="2.4、文本文件编辑命令"></a>2.4、文本文件编辑命令</h3><h4 id="1、cat命令"><a href="#1、cat命令" class="headerlink" title="1、cat命令"></a>1、cat命令</h4><p>cat命令用于查看纯文本文件（内容较少的）。</p>
+<blockquote>
+<p>**语法格式:**“cat [选项] [文件]”</p>
+</blockquote>
+<p>注意：当文件内容较大时，文本内容会在屏幕上快速闪动（滚屏），用户往往看不清所显示的具体内容。因此对于较长文件内容可以按Ctrl+S键，停止滚屏；以及Ctrl+Q键可以恢复滚屏；而按Ctrl+C（中断）键则可以终止该命令的执行。</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-n</th>
+<th>显示行数（空行也编号）</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-s</td>
+<td>显示行数（多个空行算一个编号）</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>显示行数（空行不编号）</td>
+</tr>
+<tr>
+<td>-E</td>
+<td>每行结束处显示$符号</td>
+</tr>
+<tr>
+<td>-T</td>
+<td>将TAB字符显示为 ^I符号</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>使用 ^ 和 M- 引用，除了 LFD 和 TAB 之外</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>等价于”-vE”组合</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>等价于”-vT”组合</td>
+</tr>
+<tr>
+<td>-A</td>
+<td>等价于 -vET组合</td>
+</tr>
+<tr>
+<td>–help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>–version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody></table>
+<h4 id="2、more命令-–-显示文本文件内容"><a href="#2、more命令-–-显示文本文件内容" class="headerlink" title="2、more命令 – 显示文本文件内容"></a>2、more命令 – 显示文本文件内容</h4><p>more命令用于将内容较长的文本文件内容（不能在一屏显示完）进行分屏显示，并且支持在显示时定位关键字。而对于内容较少的文本文件内容则推荐使用cat命令查看。</p>
+<blockquote>
+<p><strong>语法格式：</strong>more [参数] [文件] </p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-num</th>
+<th>指定每屏显示的行数</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-l</td>
+<td>more在通常情况下把 <strong>^L</strong> 当作特殊字符, 遇到这个字符就会暂停,-l选项可以阻止这种特性</td>
+</tr>
+<tr>
+<td>-f</td>
+<td>计算实际的行数，而非自动换行的行数</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>先清除屏幕再显示文本文件的剩余内容</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>与-p相似，不滚屏，先显示内容再清除旧内容</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>多个空行压缩成一行显示</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>禁止下划线</td>
+</tr>
+<tr>
+<td>+/pattern</td>
+<td>在每个文档显示前搜寻该字(pattern)，然后从该字串之后开始显示</td>
+</tr>
+<tr>
+<td>+num</td>
+<td>从第 num 行开始显示</td>
+</tr>
+</tbody></table>
+<h4 id="3、head命令"><a href="#3、head命令" class="headerlink" title="3、head命令"></a>3、head命令</h4><p>head命令以行为单位，取文件的内容,后面不接参数时默认打印前10行。</p>
+<p><strong>语法格式：</strong>head [参数] [文件]</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-n</th>
+<th>后面接数字，代表显示几行的意思</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>指定显示头部内容的字符数</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>总是显示文件名的头信息</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>不显示文件名的头信息</td>
+</tr>
+</tbody></table>
+<h3 id="2-5、文件目录管理命令"><a href="#2-5、文件目录管理命令" class="headerlink" title="2.5、文件目录管理命令"></a>2.5、文件目录管理命令</h3><h4 id="1、touch命令"><a href="#1、touch命令" class="headerlink" title="1、touch命令"></a>1、touch命令</h4><p>touch命令用于创建空白文件或设置文件的时间；</p>
+<blockquote>
+<p><strong>语法格式：</strong>touch [参数] [文件]</p>
+</blockquote>
+<p><strong>常用参数：</strong>﻿</p>
+<table>
+<thead>
+<tr>
+<th>-a</th>
+<th>改变档案的读取时间记录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-m</td>
+<td>改变档案的修改时间记录</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>使用参考档的时间记录，与 –file 的效果一样</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>不创建新文件</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>设定时间与日期，可以使用各种不同的格式</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>设定档案的时间记录，格式与 date 命令相同</td>
+</tr>
+<tr>
+<td>–no-create</td>
+<td>不创建新文件</td>
+</tr>
+<tr>
+<td>–help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>–version</td>
+<td>列出版本讯息</td>
+</tr>
+</tbody></table>
+<h4 id="2、mkdir命令"><a href="#2、mkdir命令" class="headerlink" title="2、mkdir命令"></a>2、mkdir命令</h4><p>mkdir命令用于创建空白的目录；</p>
+<p><strong>语法格式 :</strong> mkdir [参数] [目录] </p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-p</th>
+<th>递归创建多级目录</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-m</td>
+<td>建立目录的同时设置目录的权限</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>设置安全上下文</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示目录的创建过程</td>
+</tr>
+</tbody></table>
+<p>在工作目录下，建立一个名为 dir 的子目录： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# mkdir dir</span><br></pre></td></tr></table></figure>
+
+<p> 在目录/usr/linuxcool下建立子目录dir，并且设置文件属主有读、写和执行权限，其他人无权访问 </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# mkdir -m 700 /usr/linuxcool/dir</span><br></pre></td></tr></table></figure>
+
+
+
+<h4 id="3、cp命令"><a href="#3、cp命令" class="headerlink" title="3、cp命令"></a>3、cp命令</h4><p>cp命令可以将多个文件复制到一个具体的文件名或一个已经存在的目录下，也可以同时复制多个文件到一个指定的目录中。</p>
+<p><strong>语法格式：</strong>cp [参数] [文件] </p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-f</th>
+<th>若目标文件已存在，则会直接覆盖原文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-i</td>
+<td>若目标文件已存在，则会询问是否覆盖</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>保留源文件或目录的所有属性</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归复制文件和目录</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>当复制符号连接时，把目标文件或目录也建立为符号连接，并指向与源文件或目录连接的原始文件或目录</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>对源文件建立硬连接，而非复制文件</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>对源文件建立符号连接，而非复制文件</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>覆盖已存在的文件目标前将目标文件备份</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>详细显示cp命令执行的操作过程</td>
+</tr>
+<tr>
+<td>-a</td>
+<td>等价于“dpr”选项</td>
+</tr>
+</tbody></table>
+<p>例如： 交互式地将目录 /usr/linuxcool 中的所有.c文件复制到目录 dir 中：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# cp -r /usr/linuxcool/*.c dir</span><br></pre></td></tr></table></figure>
+
+<h4 id="4、mv命令"><a href="#4、mv命令" class="headerlink" title="4、mv命令"></a>4、mv命令</h4><p>mv命令用于剪切文件或将文件重命名，mv与cp的结果不同。mv命令好像文件“搬家”，文件名称发生改变，但个数并未增加。而cp命令是对文件进行复制操作，文件个数是有增加的。</p>
+<blockquote>
+<p><strong>语法格式：</strong>mv [参数]</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-i</th>
+<th>若存在同名文件，则向用户询问是否覆盖</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f</td>
+<td>覆盖已有文件时，不进行任何提示</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>当文件存在时，覆盖前为其创建一个备份</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>当源文件比目标文件新，或者目标文件不存在时，才执行移动此操作</td>
+</tr>
+</tbody></table>
+<h4 id="5、rm命令"><a href="#5、rm命令" class="headerlink" title="5、rm命令"></a>5、rm命令</h4><p>rm命令用于删除文件或目录，格式为“rm [选项]文件”。</p>
+<p><strong>语法格式：</strong>rm [参数] [文件]</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-f</th>
+<th>忽略不存在的文件，不会出现警告信息</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-i</td>
+<td>删除前会询问用户是否操作</td>
+</tr>
+<tr>
+<td>-r/R</td>
+<td>递归删除</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示指令的详细执行过程</td>
+</tr>
+</tbody></table>
+<p>直接删除，不会有任何提示：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# rm -f test.txt.bz2  </span><br></pre></td></tr></table></figure>
+
+<p>递归删除目录及目录下所有文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# mkdir /data/log</span><br><span class="line">[root@linuxcool ~]# rm -rf /data/log</span><br></pre></td></tr></table></figure>
+
+<p>删除当前目录下所有文件：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# rm -rf *</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-6、打包压缩与搜索命令"><a href="#2-6、打包压缩与搜索命令" class="headerlink" title="2.6、打包压缩与搜索命令"></a>2.6、打包压缩与搜索命令</h3><h4 id="1．tar命令"><a href="#1．tar命令" class="headerlink" title="1．tar命令"></a>1．tar命令</h4><p>tar命令用于对文件进行打包压缩或解压，</p>
+<blockquote>
+<p><strong>语法格式：</strong>tar [参数] [文件或目录]</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-A</th>
+<th>新增文件到以存在的备份文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-B</td>
+<td>设置区块大小</td>
+</tr>
+<tr>
+<td>-c</td>
+<td>建立新的备份文件</td>
+</tr>
+<tr>
+<td>-C &lt;目录&gt;</td>
+<td>切换工作目录，先进入指定目录再执行压缩/解压缩操作，可用于仅压缩特定目录里的内容或解压缩到特定目录</td>
+</tr>
+<tr>
+<td>-d</td>
+<td>记录文件的差别</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>从归档文件中提取文件</td>
+</tr>
+<tr>
+<td>-t</td>
+<td>列出备份文件的内容</td>
+</tr>
+<tr>
+<td>-z</td>
+<td>通过gzip指令压缩/解压缩文件，文件名最好为*.tar.gz</td>
+</tr>
+<tr>
+<td>-Z</td>
+<td>通过compress指令处理备份文件</td>
+</tr>
+<tr>
+<td>-f&lt;备份文件&gt;</td>
+<td>指定备份文件</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示指令执行过程</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>添加文件到已经压缩的文件</td>
+</tr>
+<tr>
+<td>-u</td>
+<td>添加改变了和现有的文件到已经存在的压缩文件</td>
+</tr>
+<tr>
+<td>-j</td>
+<td>通过bzip2指令压缩/解压缩文件，文件名最好为*.tar.bz2</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示操作过程</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>文件系统边界设置</td>
+</tr>
+<tr>
+<td>-k</td>
+<td>保留原有文件不覆盖</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>保留文件不被覆盖</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>确认压缩文件的正确性</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>保留原来的文件权限与属性</td>
+</tr>
+<tr>
+<td>-P</td>
+<td>使用文件名的绝对路径，不移除文件名称前的“/”号</td>
+</tr>
+<tr>
+<td>-N &lt;日期格式&gt;</td>
+<td>只将较指定日期更新的文件保存到备份文件里</td>
+</tr>
+<tr>
+<td>– -exclude=&lt;范本样式&gt;</td>
+<td>排除符合范本样式的文件</td>
+</tr>
+<tr>
+<td>– -remove-files</td>
+<td>归档/压缩之后删除源文件</td>
+</tr>
+</tbody></table>
+<p>把指定的文件进行打包压缩：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar-czvf压缩包名称．tar.gz要打包的目录</span><br></pre></td></tr></table></figure>
+
+<p>解压命令为：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -xzvf压缩包名称．tar.gz</span><br></pre></td></tr></table></figure>
+
+<h4 id="2、grep命令"><a href="#2、grep命令" class="headerlink" title="2、grep命令"></a>2、grep命令</h4><p> 强大的文本搜索工具，grep命令的选项用于对搜索过程的补充，而其命令的模式十分灵活，可以是变量、字符串、正则表达式。</p>
+<p>需要注意的是：一当模式中包含了空格，务必要用双引号将其引起来。</p>
+<p><strong>语法格式：</strong> grep [参数]</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-i</th>
+<th>搜索时，忽略大小写</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-c</td>
+<td>只输出匹配行的数量</td>
+</tr>
+<tr>
+<td>-l</td>
+<td>只列出符合匹配的文件名，不列出具体的匹配行</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>列出所有的匹配行，显示行号</td>
+</tr>
+<tr>
+<td>-h</td>
+<td>查询多文件时不显示文件名</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>不显示不存在、没有匹配文本的错误信息</td>
+</tr>
+<tr>
+<td>-v</td>
+<td>显示不包含匹配文本的所有行</td>
+</tr>
+<tr>
+<td>-w</td>
+<td>匹配整词</td>
+</tr>
+<tr>
+<td>-x</td>
+<td>匹配整行</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>递归搜索</td>
+</tr>
+<tr>
+<td>-q</td>
+<td>禁止输出任何结果，已退出状态表示搜索是否成功</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>打印匹配行距文件头部的偏移量，以字节为单位</td>
+</tr>
+<tr>
+<td>-o</td>
+<td>与-b结合使用，打印匹配的词据文件头部的偏移量，以字节为单位</td>
+</tr>
+</tbody></table>
+<h3 id="2-7、用户身份与文件权限"><a href="#2-7、用户身份与文件权限" class="headerlink" title="2.7、用户身份与文件权限"></a>2.7、用户身份与文件权限</h3><h4 id="1、sudo-切换用户执行身份命令"><a href="#1、sudo-切换用户执行身份命令" class="headerlink" title="1、sudo 切换用户执行身份命令"></a>1、sudo 切换用户执行身份命令</h4><p>sudo 是一种权限管理机制，管理员可以授权于一些普通用户去执行一些 root 执行的操作，而不需要知道 root 的密码。</p>
+<blockquote>
+<p><strong>语法格式：</strong>sudo [参数]</p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-v</th>
+<th>因为 sudo 在第一次执行时或是在 N分钟内没有执行（N 预设为五）会问密码，这个参数是重新做一次确认，如果超过N分钟，也会问密码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-k</td>
+<td>强迫使用者在下一次执行 sudo 时问密码（不论有没有超过 N 分钟）</td>
+</tr>
+<tr>
+<td>-b</td>
+<td>将要执行的指令放在背景执行</td>
+</tr>
+<tr>
+<td>-p</td>
+<td>prompt 可以更改问密码的提示语，其中 %u 会代换为使用者的帐号名称，%h 会显示主机名称</td>
+</tr>
+<tr>
+<td>-s</td>
+<td>执行环境变数中的SHELL 所指定的shell ，或是 /etc/passwd 里所指定的 shell</td>
+</tr>
+<tr>
+<td>command</td>
+<td>要以系统管理者身份（或以 -u 更改为其他人）执行的指令</td>
+</tr>
+</tbody></table>
+<h4 id="2、adduser-添加用户命令"><a href="#2、adduser-添加用户命令" class="headerlink" title="2、adduser 添加用户命令"></a>2、adduser 添加用户命令</h4><p>该命令用于新增使用者帐号或更新预设的使用者资料。adduser 与 useradd 指令为同一指令（经由符号连结 symbolic link）</p>
+<blockquote>
+<p><strong>语法格式：</strong>adduser [参数] </p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-c</th>
+<th>加上备注文件，备注文字会存储在 passwd 的备注参数中</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-d</td>
+<td>指定用户登录时的起始目录</td>
+</tr>
+<tr>
+<td>-D</td>
+<td>变更默认值</td>
+</tr>
+<tr>
+<td>-e</td>
+<td>设定此帐号的使用期限（格式为 YYYY-MM-DD），预设值为永久有效</td>
+</tr>
+<tr>
+<td>-f &lt;缓冲天数&gt;</td>
+<td>指定在密码过期后多少天即关闭该帐号</td>
+</tr>
+<tr>
+<td>-g &lt;群组&gt;</td>
+<td>指定用户所属的群组</td>
+</tr>
+<tr>
+<td>-G &lt;群组&gt;</td>
+<td>指定用户所属的附加群组</td>
+</tr>
+<tr>
+<td>-m</td>
+<td>自动建立用户的登入目录</td>
+</tr>
+<tr>
+<td>-M</td>
+<td>不要自动建立用户的登入目录</td>
+</tr>
+<tr>
+<td>-n</td>
+<td>取消建立以用户名称为名的群组</td>
+</tr>
+<tr>
+<td>-r</td>
+<td>建立系统帐号</td>
+</tr>
+<tr>
+<td>-s <shell></td>
+<td>指定用户登入后所使用的shell</td>
+</tr>
+<tr>
+<td>-u <uid></td>
+<td>指定用户ID</td>
+</tr>
+</tbody></table>
+<h4 id="3、deluser-删除用户命令"><a href="#3、deluser-删除用户命令" class="headerlink" title="3、deluser  删除用户命令"></a>3、deluser  删除用户命令</h4><p>deluser命令用于删除用户。将一个用户从一个组中删除（即退出用户组）</p>
+<blockquote>
+<p><strong>语法格式：</strong>deluser [参数] </p>
+</blockquote>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>–remove-all-files</th>
+<th>删除用户拥有的所有文件</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>–remove-home</td>
+<td>删除用户的主目录和邮件后台处理程序</td>
+</tr>
+<tr>
+<td>–backup-to</td>
+<td>目标目录进行备份</td>
+</tr>
+<tr>
+<td>–system</td>
+<td>只有系统用户才能删除</td>
+</tr>
+</tbody></table>
+<h4 id="4、su-切换用户命令"><a href="#4、su-切换用户命令" class="headerlink" title="4、su  切换用户命令"></a>4、su  切换用户命令</h4><p>su命令用于切换当前用户身份到指定用户或者以指定用户的身份执行命令或程序。 </p>
+<p>普通用户切换到root用户，可以使用su – 或su root,但是必须输入root密码才能完成切换。root用户切换到普通用户，可以使用su username,不需要输入任何密码即可完成切换。</p>
+<p><strong>语法格式:</strong> su [选项] [用户名]</p>
+<p><strong>常用参数：</strong></p>
+<table>
+<thead>
+<tr>
+<th>-c或–command</th>
+<th>执行完指定的指令后，即恢复原来的身份</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>-f或–fast</td>
+<td>适用于csh与tsch，使shell不用去读取启动文件</td>
+</tr>
+<tr>
+<td>-l或–login</td>
+<td>改变身份时，也同时变更工作目录，以及HOME,SHELL,USER,logname,此外，也会变更PATH变量</td>
+</tr>
+<tr>
+<td>-m,-p或–preserve-environment</td>
+<td>变更身份时，不要变更环境变量</td>
+</tr>
+<tr>
+<td>-s或–shell</td>
+<td>指定要执行的shell</td>
+</tr>
+<tr>
+<td>–help</td>
+<td>显示帮助信息</td>
+</tr>
+<tr>
+<td>–version</td>
+<td>显示版本信息</td>
+</tr>
+</tbody></table>
+<p>切换到linuxcool用户，并改变为linuxcool用户环境变量：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[root@linuxcool ~]# su - linuxcool  </span><br></pre></td></tr></table></figure>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Kevin</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://zhuizhengzhe.github.io/2021/11/10/2%E3%80%81Linux/%E4%BA%8C%E3%80%81Linux%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/">https://zhuizhengzhe.github.io/2021/11/10/2%E3%80%81Linux/%E4%BA%8C%E3%80%81Linux%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://zhuizhengzhe.github.io" target="_blank">Kevin的学习站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Linux/">Linux</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/peng_xiang_li/Blogimage/raw/master/Linux/src=http---images1.tqwba.com-20200521-sb4wsp0fjrt.jpg&amp;refer=http---images1.tqwba.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/11/13/1%E3%80%81C++/2.C++%E6%96%B0%E7%89%B9%E6%80%A7/1%E3%80%81auto%E7%B1%BB%E5%9E%8B%E6%8E%A8%E5%AF%BC/"><img class="prev-cover" src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/C++/必看大字最新消息重磅公众号首图.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">一、C++11新特性：auto类型推导</div></div></a></div><div class="next-post pull-right"><a href="/2021/11/10/8%E3%80%81%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE%E5%8F%8ASLAM/%E6%97%A0%E4%BA%BA%E9%A9%BE%E9%A9%B6-%E6%84%9F%E7%9F%A5%E5%B1%82-%E4%BC%A0%E6%84%9F%E5%99%A8%EF%BC%88%E4%B8%80%EF%BC%89%E2%80%94%E2%80%94%E6%BF%80%E5%85%89%E9%9B%B7%E8%BE%BE/"><img class="next-cover" src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/Typroa+Picgo+Gitee搭建图床/src=http---img007.hc360.cn-k1-M00-8C-D8-3Y7e1240dffdd49d5Add435fAe9e72124fB.png&amp;refer=http---img007.hc360.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">无人驾驶-感知层-传感器（一）——激光雷达</div></div></a></div></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/CSDN_51che/QQ图片20211108214123.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">Kevin</div><div class="author-info__description">欢迎来到Kevin的学习站，未来无所不能！</div></div><div class="card-info-data is-center"><div class="card-info-data-item"><a href="/archives/"><div class="headline">文章</div><div class="length-num">27</div></a></div><div class="card-info-data-item"><a href="/tags/"><div class="headline">标签</div><div class="length-num">14</div></a></div><div class="card-info-data-item"><a href="/categories/"><div class="headline">分类</div><div class="length-num">13</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://blog.csdn.net/qq_44705488"><i class="fab fa-github"></i><span>关注我</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="https://github.com/zhuizhengzhe" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:xxxxxx@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://blog.csdn.net/qq_44705488" target="_blank" title="CSDN"><i class="fab fa-cuttlefish"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">欢迎来到Kevin的博客，未来无所不能！</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81Linux%E5%BC%80%E5%8F%91%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4"><span class="toc-number">1.</span> <span class="toc-text">二、Linux开发常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1%E3%80%81%E5%B8%B8%E7%94%A8%E7%9A%84%E7%B3%BB%E7%BB%9F%E5%B7%A5%E4%BD%9C%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.</span> <span class="toc-text">2.1、常用的系统工作命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81echo%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.1.</span> <span class="toc-text">1、echo命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81reboot%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.2.</span> <span class="toc-text">2、reboot命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81poweroff%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.3.</span> <span class="toc-text">3、poweroff命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81ps%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.4.</span> <span class="toc-text">4、ps命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81kill%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.5.</span> <span class="toc-text">5、kill命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6%E3%80%81killall%E5%91%BD%E4%BB%A4"><span class="toc-number">1.1.6.</span> <span class="toc-text">6、killall命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2%E3%80%81%E7%B3%BB%E7%BB%9F%E7%8A%B6%E6%80%81%E6%A3%80%E6%B5%8B%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.</span> <span class="toc-text">2.2、系统状态检测命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8Eifconfig%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.1.</span> <span class="toc-text">1．ifconfig命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-uname%E5%91%BD%E4%BB%A4"><span class="toc-number">1.2.2.</span> <span class="toc-text">2.uname命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3%E3%80%81%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%88%87%E6%8D%A2%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.</span> <span class="toc-text">2.3、工作目录切换命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81pwd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.1.</span> <span class="toc-text">1、pwd命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81cd%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.2.</span> <span class="toc-text">2、cd命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%8Els%E5%91%BD%E4%BB%A4"><span class="toc-number">1.3.3.</span> <span class="toc-text">3．ls命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4%E3%80%81%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E7%BC%96%E8%BE%91%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.</span> <span class="toc-text">2.4、文本文件编辑命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81cat%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.1.</span> <span class="toc-text">1、cat命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81more%E5%91%BD%E4%BB%A4-%E2%80%93-%E6%98%BE%E7%A4%BA%E6%96%87%E6%9C%AC%E6%96%87%E4%BB%B6%E5%86%85%E5%AE%B9"><span class="toc-number">1.4.2.</span> <span class="toc-text">2、more命令 – 显示文本文件内容</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81head%E5%91%BD%E4%BB%A4"><span class="toc-number">1.4.3.</span> <span class="toc-text">3、head命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5%E3%80%81%E6%96%87%E4%BB%B6%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.</span> <span class="toc-text">2.5、文件目录管理命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81touch%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.1.</span> <span class="toc-text">1、touch命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81mkdir%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.2.</span> <span class="toc-text">2、mkdir命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81cp%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.3.</span> <span class="toc-text">3、cp命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81mv%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.4.</span> <span class="toc-text">4、mv命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#5%E3%80%81rm%E5%91%BD%E4%BB%A4"><span class="toc-number">1.5.5.</span> <span class="toc-text">5、rm命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-6%E3%80%81%E6%89%93%E5%8C%85%E5%8E%8B%E7%BC%A9%E4%B8%8E%E6%90%9C%E7%B4%A2%E5%91%BD%E4%BB%A4"><span class="toc-number">1.6.</span> <span class="toc-text">2.6、打包压缩与搜索命令</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%8Etar%E5%91%BD%E4%BB%A4"><span class="toc-number">1.6.1.</span> <span class="toc-text">1．tar命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81grep%E5%91%BD%E4%BB%A4"><span class="toc-number">1.6.2.</span> <span class="toc-text">2、grep命令</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-7%E3%80%81%E7%94%A8%E6%88%B7%E8%BA%AB%E4%BB%BD%E4%B8%8E%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90"><span class="toc-number">1.7.</span> <span class="toc-text">2.7、用户身份与文件权限</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E3%80%81sudo-%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E6%89%A7%E8%A1%8C%E8%BA%AB%E4%BB%BD%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.1.</span> <span class="toc-text">1、sudo 切换用户执行身份命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E3%80%81adduser-%E6%B7%BB%E5%8A%A0%E7%94%A8%E6%88%B7%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.2.</span> <span class="toc-text">2、adduser 添加用户命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E3%80%81deluser-%E5%88%A0%E9%99%A4%E7%94%A8%E6%88%B7%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.3.</span> <span class="toc-text">3、deluser  删除用户命令</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%E3%80%81su-%E5%88%87%E6%8D%A2%E7%94%A8%E6%88%B7%E5%91%BD%E4%BB%A4"><span class="toc-number">1.7.4.</span> <span class="toc-text">4、su  切换用户命令</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/11/20/2%E3%80%81Linux/%E4%B8%89%E3%80%81Makefile%E5%9F%BA%E7%A1%80/" title="三、Makefile基础"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/Linux/src=http _s11.51cto.com_images_201701_a3c296f11e5ff23dfd920120b0f288bd71aaab.jpg&amp;refer=http _s11.51cto.com&amp;app=2002&amp;size=f9999,10000&amp;q=a80&amp;n=0&amp;g=0n&amp;fmt=jpeg.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="三、Makefile基础"/></a><div class="content"><a class="title" href="/2021/11/20/2%E3%80%81Linux/%E4%B8%89%E3%80%81Makefile%E5%9F%BA%E7%A1%80/" title="三、Makefile基础">三、Makefile基础</a><time datetime="2021-11-20T06:31:32.353Z" title="发表于 2021-11-20 14:31:32">2021-11-20</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/19/1%E3%80%81C++/6.%E5%89%91%E6%8C%87offer+%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/03.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" title="一、剑指offer：03. 数组中重复的数字"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/算法刷题/3ce4d69400ad9409.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="一、剑指offer：03. 数组中重复的数字"/></a><div class="content"><a class="title" href="/2021/11/19/1%E3%80%81C++/6.%E5%89%91%E6%8C%87offer+%E5%8A%9B%E6%89%A3%E5%88%B7%E9%A2%98/03.%20%E6%95%B0%E7%BB%84%E4%B8%AD%E9%87%8D%E5%A4%8D%E7%9A%84%E6%95%B0%E5%AD%97/" title="一、剑指offer：03. 数组中重复的数字">一、剑指offer：03. 数组中重复的数字</a><time datetime="2021-11-19T12:22:00.161Z" title="发表于 2021-11-19 20:22:00">2021-11-19</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/18/1%E3%80%81C++/3.C++%20STL/3%E3%80%81C++%20STL%EF%BC%9Adeque%E5%AE%B9%E5%99%A8/" title="二、C++ STL--标准模板库：deque 容器"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/C++STL/学霸知识学习公众号首图(1).jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="二、C++ STL--标准模板库：deque 容器"/></a><div class="content"><a class="title" href="/2021/11/18/1%E3%80%81C++/3.C++%20STL/3%E3%80%81C++%20STL%EF%BC%9Adeque%E5%AE%B9%E5%99%A8/" title="二、C++ STL--标准模板库：deque 容器">二、C++ STL--标准模板库：deque 容器</a><time datetime="2021-11-18T14:31:38.359Z" title="发表于 2021-11-18 22:31:38">2021-11-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/16/5%E3%80%81matlab/%E4%BA%94%E3%80%81MATLAB%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="五、MATLAB数据可视化"><img src="https://img0.baidu.com/it/u=1957084238,1780513144&amp;fm=26&amp;fmt=auto" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="五、MATLAB数据可视化"/></a><div class="content"><a class="title" href="/2021/11/16/5%E3%80%81matlab/%E4%BA%94%E3%80%81MATLAB%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" title="五、MATLAB数据可视化">五、MATLAB数据可视化</a><time datetime="2021-11-16T14:05:26.491Z" title="发表于 2021-11-16 22:05:26">2021-11-16</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/11/16/1%E3%80%81C++/2.C++%E6%96%B0%E7%89%B9%E6%80%A7/6%E3%80%81finaloverride%E6%8E%A7%E5%88%B6/" title="六、C++11新特性：final/override关键字"><img src="https://gitee.com/peng_xiang_li/Blogimage/raw/master/C++/必看大字最新消息重磅公众号首图.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="六、C++11新特性：final/override关键字"/></a><div class="content"><a class="title" href="/2021/11/16/1%E3%80%81C++/2.C++%E6%96%B0%E7%89%B9%E6%80%A7/6%E3%80%81finaloverride%E6%8E%A7%E5%88%B6/" title="六、C++11新特性：final/override关键字">六、C++11新特性：final/override关键字</a><time datetime="2021-11-16T06:02:22.531Z" title="发表于 2021-11-16 14:02:22">2021-11-16</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Kevin</div><div class="footer_custom_text">未来无所不能！</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">本地搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div></div></div><div id="search-mask"></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script><script src="/js/search/local-search.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
